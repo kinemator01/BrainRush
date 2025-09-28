@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BrainRush - Welcome</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-firestore-compat.js"></script>
+</head>
+<body>
+  <!-- Auth Section -->
+  <section id="auth" style="display: flex;">
+     <div class="title-text">
+        <span class="brain">Brain</span>
+        <span class="rush">Rush</span>
+      </div>
+    <div class="auth-container">
+      <h2>Create Account or Sign In</h2>
+      <form id="register-form">
+        <input type="email" id="reg-email" placeholder="Email" required>
+        <input type="password" id="reg-password" placeholder="Password" required>
+        <button type="submit">Register</button>
+      </form>
+      <form id="login-form">
+        <input type="email" id="login-email" placeholder="Email" required>
+        <input type="password" id="login-password" placeholder="Password" required>
+        <button type="submit">Sign In</button>
+      </form>
+      <div id="auth-status"></div>
+    </div>
+  </section>
+
+  <!-- Welcome Page -->
+  <section id="welcome" style="display: none;">
+    <div class="welcome-catchphrase">
+      <span>Unleash</span>
+      <span>Your</span>
+      <span>Mind!</span>
+    </div>
+    <h1 class="title">
+      <div class="title-text">
+        <span class="brain">Brain</span>
+        <span class="rush">Rush</span>
+      </div>
+    </h1>
+    <div class="greeting-content">
+      <p class="slogan">
+        <span>Study</span>
+        <span>Smarter,</span>
+        <span>Not</span>
+        <span>Harder</span>
+        <span>with</span>
+        <span>AI!</span>
+      </p>
+      <div class="flip-cards">
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front" style="border-color: #FF6F61;">
+              <p class="title">AI-Powered Learning</p>
+            </div>
+            <div class="flip-card-back">
+              <p class="title">AI-Powered Learning</p>
+              <p>Upload PDFs, get instant Q&A cards with Google Gemini</p>
+            </div>
+          </div>
+        </div>
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front" style="border-color: #FFD700;">
+              <p class="title">Custom Quizzes</p>
+            </div>
+            <div class="flip-card-back">
+              <p class="title">Custom Quizzes</p>
+              <p>Generate quizzes from your documents with customizable question counts</p>
+            </div>
+          </div>
+        </div>
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front" style="border-color: #40C4FF;">
+              <p class="title">Study Smarter</p>
+            </div>
+            <div class="flip-card-back">
+              <p class="title">Study Smarter</p>
+              <p>Engage with interactive games to ace your exams</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button id="play-now-btn">Play Now</button>
+      <button id="assessment-btn">Take Assessment</button>
+    </div>
+  </section>
+
+  <!-- Dashboard Section -->
+  <section id="dashboard" style="display: none;">
+    <h2>Your Dashboard</h2>
+    <div class="dashboard-friends">
+      <h3>Friends</h3>
+      <ul id="friends-list"></ul>
+    </div>
+    <div class="dashboard-courses">
+      <h3>Your Courses</h3>
+      <button id="create-course-btn">Create New Course</button>
+      <div id="courses-list"></div>
+    </div>
+    <div class="dashboard-assessments">
+      <h3>Assessment Scores</h3>
+      <div id="assessments-list"></div>
+    </div>
+    <button id="logout-btn">Logout</button>
+  </section>
+
+  <!-- Course Creation/Upload Section -->
+  <section id="course-upload" style="display: none;">
+    <h2>Create Course and Upload Modules</h2>
+    <form id="course-form">
+      <input type="text" id="course-name" placeholder="Course Name (e.g., Computer Science)" required>
+      <button type="submit">Create Course</button>
+    </form>
+    <div id="course-modules" style="display: none;">
+      <h3>Add Modules to <span id="current-course-name"></span></h3>
+      <form id="module-upload-form">
+        <input type="file" id="module-upload" accept=".pdf" required>
+        <input type="text" id="module-name" placeholder="Module Name (e.g., Algorithms)" required>
+        <button type="submit">Upload Module</button>
+      </form>
+      <div id="module-status"></div>
+      <ul id="modules-list"></ul>
+      <button id="back-to-dashboard">Back to Dashboard</button>
+    </div>
+  </section>
+
+  <!-- Game Section -->
+  <section id="game" style="display: none;">
+    <h2>BrainRush Game</h2>
+    <div id="game-container">
+      <div id="game-question"></div>
+      <div id="game-options"></div>
+      <div id="game-feedback"></div>
+      <div id="game-score">Score: 0</div>
+      <div id="game-timer">Time: 30s</div>
+      <button id="next-question">Next Question</button>
+      <button id="end-game">End Game</button>
+    </div>
+    <button id="back-to-dashboard-game">Back to Dashboard</button>
+  </section>
+
+  <!-- Assessment Section -->
+  <section id="assessment" style="display: none;">
+    <h2>Generate Formal Test</h2>
+    <form id="assessment-form">
+      <label for="assessment-course">Select Course:</label>
+      <select id="assessment-course" required>
+        <option value="" disabled selected>Choose a course</option>
+      </select>
+      <label for="assessment-module">Select Module:</label>
+      <select id="assessment-module" required>
+        <option value="" disabled selected>Choose a module</option>
+      </select>
+      <label for="test-questions">Number of Questions:</label>
+      <input type="number" id="test-questions" min="5" max="100" value="20" required>
+      <button type="submit">Generate Test</button>
+    </form>
+    <div id="test-output"></div>
+    <button id="back-to-dashboard-assess">Back to Dashboard</button>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>

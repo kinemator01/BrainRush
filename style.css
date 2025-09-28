@@ -1,0 +1,640 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  color: white;
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+  background-color: #001F3F;
+}
+
+/* Auth Section */
+#auth {
+  background-color: #001F3F;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+}
+
+.auth-container {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 2rem;
+  border-radius: 1rem;
+  max-width: 400px;
+  width: 100%;
+}
+
+.auth-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.auth-container input {
+  padding: 0.75rem;
+  border-radius: 5px;
+  border: none;
+  background: white;
+  color: #001F3F;
+}
+
+.auth-container button {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 0.75rem;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.auth-container button:hover {
+  background-color: #2980b9;
+}
+
+#auth-status {
+  color: #40C4FF;
+  margin-top: 1rem;
+}
+
+/* Welcome Page */
+#welcome {
+  background-color: #001F3F;
+  color: #ffffff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+}
+
+#welcome h1 {
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.welcome-catchphrase {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.welcome-catchphrase span {
+  font-size: 1.8rem;
+  font-weight: 700;
+  animation: float 3s ease-in-out infinite;
+}
+
+.welcome-catchphrase span:nth-child(1) { color: #FF6F61; }
+.welcome-catchphrase span:nth-child(2) { color: #FFD700; }
+.welcome-catchphrase span:nth-child(3) { color: #40C4FF; }
+
+.title-text {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  font-size: 3rem;
+}
+
+.brain { color: #3498db; }
+.rush { color: #e74c3c; }
+
+.greeting-content p {
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.slogan span {
+  font-size: 1.2rem;
+  font-weight: 500;
+  animation: float 3s ease-in-out infinite;
+}
+
+.slogan span:nth-child(1) { color: #FFDC00; }
+.slogan span:nth-child(2) { color: #2ECC40; }
+.slogan span:nth-child(3) { color: #0074D9; }
+.slogan span:nth-child(4) { color: #FF851B; }
+.slogan span:nth-child(5) { color: #B10DC9; }
+.slogan span:nth-child(6) { color: #01FF70; }
+
+.flip-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.flip-card {
+  background-color: transparent;
+  width: 190px;
+  height: 254px;
+  perspective: 1000px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.flip-card .title {
+  font-size: 1.5em;
+  font-weight: 900;
+  text-align: center;
+  margin: 0;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  box-shadow: 0 8px 14px 0 rgba(0,0,0,0.2);
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 1rem;
+  padding: 0.5rem;
+}
+
+.flip-card-front {
+  background: #001F3F;
+  color: white;
+  border: 1px solid;
+}
+
+.flip-card-back {
+  color: white;
+  transform: rotateY(180deg);
+  overflow-wrap: break-word;
+  overflow: hidden;
+}
+
+.flip-card-back p:not(.title) {
+  font-size: 0.9rem;
+  line-height: 1.2;
+  margin-top: 0.5rem;
+  max-width: 100%;
+}
+
+.flip-card:nth-child(1) .flip-card-back { background: #FF4136; }
+.flip-card:nth-child(2) .flip-card-back { background: #3498db; }
+.flip-card:nth-child(3) .flip-card-back { background: #2ECC40; }
+
+#play-now-btn, #assessment-btn {
+  background-color: #FF4136;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+  animation: jello-horizontal 0.9s both;
+  margin: 0.5rem;
+}
+
+#play-now-btn:hover, #assessment-btn:hover {
+  background-color: #e6392e;
+  transform: scale(1.05);
+}
+
+@keyframes jello-horizontal {
+  0% { transform: scale3d(1, 1, 1); }
+  30% { transform: scale3d(1.25, 0.75, 1); }
+  40% { transform: scale3d(0.75, 1.25, 1); }
+  50% { transform: scale3d(1.15, 0.85, 1); }
+  65% { transform: scale3d(0.95, 1.05, 1); }
+  75% { transform: scale3d(1.05, 0.95, 1); }
+  100% { transform: scale3d(1, 1, 1); }
+}
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+  100% { transform: translateY(0); }
+}
+
+/* Dashboard Section */
+#dashboard {
+  background-color: #001F3F;
+  min-height: 100vh;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.dashboard-friends, .dashboard-courses, .dashboard-assessments {
+  width: 100%;
+  max-width: 800px;
+  margin-bottom: 2rem;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1rem;
+  border-radius: 1rem;
+}
+
+#friends-list, #courses-list, #assessments-list {
+  list-style: none;
+}
+
+#friends-list li, .course-item, .assessment-item {
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 5px;
+}
+
+.progress-bar {
+  background: rgba(255, 255, 255, 0.2);
+  height: 10px;
+  border-radius: 5px;
+  margin-top: 0.5rem;
+}
+
+.progress-fill {
+  background: #2ECC40;
+  height: 100%;
+  border-radius: 5px;
+  transition: width 0.3s ease;
+}
+
+#create-course-btn, #logout-btn {
+  background-color: #FF4136;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  margin: 0.5rem;
+  transition: background-color 0.2s ease;
+}
+
+#create-course-btn:hover, #logout-btn:hover {
+  background-color: #e6392e;
+}
+
+/* Course Upload Section */
+#course-upload {
+  background-color: #001F3F;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+}
+
+#course-form, #module-upload-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 500px;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+#course-form input, #module-upload-form input {
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: none;
+  background: white;
+  color: #001F3F;
+}
+
+#course-form button, #module-upload-form button {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 0.75rem;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+#course-form button:hover, #module-upload-form button:hover {
+  background-color: #2980b9;
+}
+
+#course-modules {
+  max-width: 500px;
+  width: 100%;
+}
+
+#modules-list {
+  list-style: none;
+  margin-top: 1rem;
+}
+
+#modules-list li {
+  padding: 0.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  margin-bottom: 0.5rem;
+  border-radius: 5px;
+}
+
+#module-status {
+  color: #40C4FF;
+  margin-top: 1rem;
+}
+
+#back-to-dashboard {
+  background-color: #FF4136;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+#back-to-dashboard:hover {
+  background-color: #e6392e;
+}
+
+/* Game Section */
+#game {
+  background-color: #001F3F;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+}
+
+#game-container {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 2rem;
+  border-radius: 1rem;
+  max-width: 600px;
+  width: 100%;
+}
+
+#game-question {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+#game-options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.game-option {
+  background: #3498db;
+  color: white;
+  padding: 0.75rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.game-option:hover {
+  background: #2980b9;
+}
+
+#game-feedback {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  color: #40C4FF;
+}
+
+#game-score, #game-timer {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+#next-question, #end-game {
+  background-color: #FF4136;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  margin: 0.5rem;
+  transition: background-color 0.2s ease;
+}
+
+#next-question:hover, #end-game:hover {
+  background-color: #e6392e;
+}
+
+#back-to-dashboard-game {
+  background-color: #FF4136;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: background-color 0.2s ease;
+}
+
+#back-to-dashboard-game:hover {
+  background-color: #e6392e;
+}
+
+/* Assessment Section */
+#assessment {
+  background-color: #001F3F;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+}
+
+#assessment-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 500px;
+  width: 100%;
+}
+
+#assessment-form select, #assessment-form input {
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: none;
+  background: white;
+  color: #001F3F;
+}
+
+#assessment-form button {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 0.75rem;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+#assessment-form button:hover {
+  background-color: #2980b9;
+}
+
+#test-output {
+  margin-top: 2rem;
+  max-width: 600px;
+  text-align: left;
+}
+
+.test-question {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 5px;
+}
+
+.test-question input {
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: none;
+  margin-top: 0.5rem;
+}
+
+#submit-test {
+  background-color: #FF4136;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+#submit-test:hover {
+  background-color: #e6392e;
+}
+
+#back-to-dashboard-assess {
+  background-color: #FF4136;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: background-color 0.2s ease;
+}
+
+#back-to-dashboard-assess:hover {
+  background-color: #e6392e;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  #welcome h1 {
+    font-size: 2rem;
+  }
+
+  .welcome-catchphrase span {
+    font-size: 1.4rem;
+  }
+
+  .title-text {
+    font-size: 2rem;
+  }
+
+  .greeting-content p {
+    font-size: 1rem;
+  }
+
+  .slogan span {
+    font-size: 1rem;
+  }
+
+  .flip-card {
+    width: 150px;
+    height: 200px;
+  }
+
+  .flip-card .title {
+    font-size: 1.2em;
+  }
+
+  .flip-card-back p:not(.title) {
+    font-size: 0.8rem;
+    line-height: 1.1;
+  }
+
+  #game-container {
+    padding: 1rem;
+  }
+
+  #game-question {
+    font-size: 1.2rem;
+  }
+
+  .game-option {
+    padding: 0.5rem;
+    font-size: 0.9rem;
+  }
+
+  #game-score, #game-timer {
+    font-size: 1rem;
+  }
+}
