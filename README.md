@@ -17,27 +17,27 @@ BrainRush is a dynamic, full-stack web application designed to optimize exam pre
 
 ---
 
-## 🏗️ My Engineering Contributions
+## 🏗️ Team Engineering Contributions
 
-This prototype was built during a high-velocity **Google Hackathon**. I owned the entire visual viewport presentation layout and worked alongside my team to implement our generative API data layers.
+This prototype was built during a high-velocity **Google Hackathon**. As a team, we synchronized our workflows to build out the full user interface while simultaneously integrating our generative AI backend data layers.
 
-### 🎨 1. Frontend Architecture & UI/UX Engineering (100% Ownership)
-* **Fluid Layout Navigation:** Built a fast, single-page application (SPA) screen switcher using clean DOM style display management functions instead of bloated third-party routing libraries.
-* **Component-Level Motion Dynamics:** Implemented CSS3 structural perspective matrices to engineer responsive 3D flip-cards (`preserve-3d` / `backface-visibility`), complete with multi-phase animation decay timers (`jello-horizontal`) for dynamic, interactive user engagement.
-* **Micro-Breakdowns:** Designed automated CSS progress fills matching calculated floating-point percentages, complete with full responsive media query scaling boundaries to keep the UI clean across different screens.
+### 🎨 1. Frontend Architecture & UI/UX Engineering
+* **Fluid Layout Navigation:** Handled our single-page application (SPA) viewport transitions using clean, native DOM style display management functions instead of adding heavy routing dependencies.
+* **Component-Level Motion Dynamics:** Leveraged CSS3 structural perspective matrices to engineer responsive 3D flip-cards (`preserve-3d` / `backface-visibility`), complete with multi-phase animation decay timers (`jello-horizontal`) for dynamic user engagement.
+* **Responsive Layouts:** Implemented automated CSS progress fills matching calculated floating-point percentages, matching them with full media query scaling boundaries to keep the UI clean across different screens.
 
-### 🔌 2. Google Gemini API Integration & Async Processing (Co-Developer)
-* Assisted in implementing asynchronous `fetch` requests targeting the `gemini-1.5-pro` model configuration payload.
-* Drafted structural system prompting strategies to force the model into isolating raw text blocks and formatting them into clean, parsable JSON objects containing strict `question` and `answer` element string tokens.
+### 🔌 2. Google Gemini API Integration & Async Processing
+* Co-developed the asynchronous `fetch` pipeline targeting the `gemini-1.5-pro` model configuration payload.
+* Collaborated on structural system prompting strategies to force the model into isolating raw text blocks and formatting them into clean, parsable JSON objects containing strict `question` and `answer` element string tokens.
 
 ---
 
 ## 🏁 Hackathon Post-Mortem & June Sprint Goals
 
-> ⚠️ **Status Note:** While our core UI layout layers and state maps were fully compiled during the hackathon, we hit strict execution bottlenecks with our third-party PDF parsing pipeline pipeline (`/parse-pdf` backend connection loop), which prevented the API from running seamlessly before the submission timer expired. 
+> ⚠️ **Status Note:** While our core UI layout layers and state maps were fully compiled during the hackathon, we hit strict execution bottlenecks with our third-party PDF parsing pipeline (`/parse-pdf` backend connection loop), which prevented the API from running seamlessly before the submission timer expired. 
 
 ### 📅 The June Holiday Roadmap:
-Rather than leaving this as a hackathon draft, we are completing the project over the upcoming winter break with the following engineering sprints:
+Rather than leaving this as a hackathon draft, we are finishing the project together over the upcoming winter break with the following engineering sprints:
 1. **Local Node.js PDF Parse Gateway:** Strip out unpredictable mock endpoints and implement a local server-side middleware pipeline using `pdf-parse` or a secure Google Cloud Bucket system to parse string data smoothly.
 2. **Strict JSON Ingestion Fixes:** Upgrade the generative completion call using Gemini's structured output config parameters (`responseMimeType: "application/json"`) to ensure zero text syntax failures during deep JSON validation loops.
 3. **Hardened API Key Handling:** Migrate the hardcoded client-side API credentials directly into encrypted **Firebase Cloud Functions** environment variables to follow proper enterprise security principles.
