@@ -1,5 +1,5 @@
 # 🧠 BrainRush — AI-Powered Gamified Study Platform
-
+ Open app: https://kinemator01.github.io/BrainRush/
 BrainRush is a dynamic, full-stack web application designed to optimize exam preparation. The platform allows users to upload course modules in PDF format, uses **Google Gemini** to parse the text into interactive study card datasets, and translates them into live, multi-option games and formal assessments. Data state persistence is managed entirely via a synchronized **Firebase** cloud instance.
 
 ![HTML5](https://img.shields.io/badge/Language-HTML5%20%2F%20CSS3-blue?style=flat-square)
